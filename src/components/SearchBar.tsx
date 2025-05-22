@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { TextField, IconButton, InputAdornment } from '@mui/material';
+import { TextField, IconButton, InputAdornment, Button } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
 export type SearchBarProps = {
@@ -34,11 +34,12 @@ export const SearchBar: React.FC<SearchBarProps> = ({ initialValue = '', onSearc
   }, []);
 
   return (
-    <form onSubmit={handleSubmit} style={{ width: '100%' }}>
+    <form onSubmit={handleSubmit} style={{ width: '100%', display: 'flex', alignItems: 'center' }}>
       <TextField
         inputRef={inputRef}
         fullWidth
         variant="outlined"
+        size="small"
         placeholder="SoundCloud track URL"
         value={value}
         onChange={handleChange}

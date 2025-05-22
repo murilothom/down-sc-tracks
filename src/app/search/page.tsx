@@ -26,7 +26,7 @@ export default function SearchPage() {
 
         {error && <Alert severity="error">{error}</Alert>}
 
-        <Box sx={{ width: '100%', display: 'flex', justifyContent: 'flex-end' }}>
+        <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
           {track && !loading && !error && <TrackCard track={track} />}
         </Box>
       </Box>

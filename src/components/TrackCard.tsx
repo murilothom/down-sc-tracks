@@ -33,8 +33,13 @@ export const TrackCard: React.FC<TrackCardProps> = ({ track }) => {
   };
 
   return (
-    <Card sx={{ maxWidth: 648, width: '100%' }}>
-      <CardActionArea component={Link} href={`/tracks/${id}`}>
+    <Card sx={{ maxWidth: 320, width: '100%' }}>
+      <CardActionArea
+        component={Link}
+        href={permalink_url}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <CardMedia>
           <Box sx={{ position: 'relative', width: '100%', height: 200 }}>
             <NextImage
