@@ -14,13 +14,13 @@ export const getAppTheme = (mode: 'light' | 'dark') => {
       MuiCssBaseline: {
         styleOverrides: {
           '*::selection': {
-            backgroundColor: 'rgba(255, 85, 0, 0.3)',
+            backgroundColor: 'rgba(255, 85, 0, 0.8)',
           },
           '*::-moz-selection': {
-            backgroundColor: 'rgba(255, 85, 0, 0.3)',
+            backgroundColor: 'rgba(255, 85, 0, 0.8)',
           },
           'input::selection, textarea::selection': {
-            backgroundColor: 'transparent !important',
+            backgroundColor: 'rgba(255, 85, 0, 0.8) !important',
           },
         },
       },

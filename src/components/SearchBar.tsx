@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { TextField, IconButton, InputAdornment, Button } from '@mui/material';
+import { TextField, IconButton, InputAdornment, Button, Box } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import ClearIcon from '@mui/icons-material/Clear';
 
 export type SearchBarProps = {
   initialValue?: string;
@@ -21,18 +22,6 @@ export const SearchBar: React.FC<SearchBarProps> = ({ initialValue = '', onSearc
     if (trimmed) onSearch(trimmed);
   };
 
-  const clearSelection = () => {
-    const input = inputRef.current;
-    if (input) {
-      const len = input.value.length;
-      input.setSelectionRange(len, len);
-    }
-  };
-
-  useEffect(() => {
-    clearSelection();
-  }, []);
-
   return (
     <form onSubmit={handleSubmit} style={{ width: '100%', display: 'flex', alignItems: 'center' }}>
       <TextField
@@ -43,41 +32,27 @@ export const SearchBar: React.FC<SearchBarProps> = ({ initialValue = '', onSearc
         placeholder="SoundCloud track URL"
         value={value}
         onChange={handleChange}
-        sx={{
-          input: {
-            '&::selection': {
-              background: '#f7a494',
-            },
-            '&::-moz-selection': {
-              background: '#f7a494',
-            },
-            '::selection': {
-              background: '#f7a494',
-            },
-            '::-moz-selection': {
-              background: '#f7a494',
-            },
-          },
-          '&::selection': {
-            background: '#f7a494',
-          },
-          '&::-moz-selection': {
-            background: '#f7a494',
-          },
-          '::selection': {
-            background: '#f7a494',
-          },
-          '::-moz-selection': {
-            background: '#f7a494',
-          },
-        }}
         slotProps={{
           input: {
             endAdornment: (
               <InputAdornment position="end">
-                <IconButton type="submit" edge="end" aria-label="search">
-                  <SearchIcon />
-                </IconButton>
+                <Box
+                  sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 2 }}
+                >
+                  {!!value.trim().length && (
+                    <IconButton
+                      onClick={() => setValue('')}
+                      type="button"
+                      edge="end"
+                      aria-label="clear"
+                    >
+                      <ClearIcon />
+                    </IconButton>
+                  )}
+                  <IconButton type="submit" edge="end" aria-label="search">
+                    <SearchIcon />
+                  </IconButton>
+                </Box>
               </InputAdornment>
             ),
           },
