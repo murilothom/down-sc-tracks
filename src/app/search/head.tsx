@@ -82,7 +82,7 @@ export const metadata: Metadata = {
     description:
       'Baixe músicas do SoundCloud facilmente. Ferramenta gratuita para baixar qualquer track do SoundCloud em MP3.',
     // !FIXME: Update the URL to your actual domain
-    url: 'https://downsc.com',
+    url: 'https://down-sc-tracks.vercel.app/search',
     siteName: 'DownSC',
     type: 'website',
     images: [

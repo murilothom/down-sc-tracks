@@ -1,10 +1,11 @@
 'use client';
 
 import React from 'react';
-import { Container, CircularProgress, Alert, Box, Button } from '@mui/material';
+import { Container, CircularProgress, Alert, Box } from '@mui/material';
 import { SearchBar } from '@/components/SearchBar';
 import { useSearchTracks } from '@/hooks/useSearchTracks';
 import { TrackCard } from '@/components/TrackCard';
+import { GoogleAdSense } from '@/components/GoogleAdSense';
 
 export default function SearchPage() {
   const { track, loading, error, search } = useSearchTracks();
@@ -16,7 +17,10 @@ export default function SearchPage() {
   return (
     <Container sx={{ py: 4 }}>
       <SearchBar onSearch={handleSearch} />
-
+      {/* Anúncio logo após a barra de busca */}
+      <Box mt={2} mb={2}>
+        <GoogleAdSense />
+      </Box>
       <Box mt={4}>
         {loading && (
           <Box display="flex" justifyContent="center" my={2}>
