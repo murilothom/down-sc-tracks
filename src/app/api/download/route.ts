@@ -1,16 +1,6 @@
-// src/app/api/download/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import scdl from 'soundcloud-downloader';
-
-// utility para sanitizar
-function sanitizeFileName(title: string) {
-  return title
-    .normalize('NFKD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-zA-Z0-9 \-._]/g, '')
-    .trim()
-    .replace(/ +/g, '_');
-}
+import { sanitizeFileName } from '@/utils/sanitizeFileName';
 
 export async function GET(request: NextRequest) {
   const url = new URL(request.url).searchParams.get('url');
