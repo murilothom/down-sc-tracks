@@ -1,6 +1,17 @@
+import { env } from '@/env/env';
 import React, { useEffect } from 'react';
 
-export const GoogleAdSense: React.FC = () => {
+interface GoogleAdSenseProps {
+  dataAdSlot: string;
+  dataAdFormat: string;
+  dataAdFullWidthResponsive: boolean;
+}
+
+export const GoogleAdSense = ({
+  dataAdSlot,
+  dataAdFormat,
+  dataAdFullWidthResponsive,
+}: GoogleAdSenseProps) => {
   useEffect(() => {
     try {
       // @ts-ignore
@@ -9,14 +20,13 @@ export const GoogleAdSense: React.FC = () => {
   }, []);
 
   return (
-    // <ins
-    //   className="adsbygoogle"
-    //   style={{ display: 'block', width: '100%', minHeight: 90 }}
-    //   data-ad-client={GOOGLE_AD_CLIENT}
-    //   data-ad-slot={GOOGLE_AD_SLOT}
-    //   data-ad-format="auto"
-    //   data-full-width-responsive="true"
-    // ></ins>
-    null // Descomente a linha acima para ativar o anúncio
+    <ins
+      className="adsbygoogle"
+      style={{ display: 'block' }}
+      data-ad-client={env.GOOGLE_AD_CLIENT}
+      data-ad-slot={dataAdSlot}
+      data-ad-format={dataAdFormat}
+      data-full-width-responsive={dataAdFullWidthResponsive}
+    ></ins>
   );
 };
