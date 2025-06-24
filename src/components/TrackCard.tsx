@@ -21,7 +21,7 @@ export type TrackCardProps = {
 };
 const defaultImage = '/default-artwork.png';
 export const TrackCard: React.FC<TrackCardProps> = ({ track }) => {
-  const { id, title, artwork_url, user, duration, permalink_url } = track;
+  const { title, artwork_url, user, duration, permalink_url } = track;
 
   const initialSrc = artwork_url ? artwork_url.replace('-large', '-t500x500') : defaultImage;
   const [imgSrc, setImgSrc] = useState<string>(initialSrc);
